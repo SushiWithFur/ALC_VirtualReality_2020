@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
         // Moves the car forward based on vertical input
-       
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         // Moves the car based on horizontal input
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
         if (Input.GetKeyDown(KeyCode.Space))
@@ -33,10 +33,11 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            playerRb.AddForce(Vector3.forward * moveForce, ForceMode.Impulse);
+            transform.Translate(Vector3.forward * Time.deltaTime * (speed * 2) * forwardInput);
         }
+       
 
 
     }
