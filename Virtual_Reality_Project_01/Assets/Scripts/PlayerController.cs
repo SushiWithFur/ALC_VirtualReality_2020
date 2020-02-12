@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float speed = 20f;
-    private float turnSpeed = 45f;
+    public float turnSpeed = 100f;
     private float horizontalInput;
     private float forwardInput;
     private Rigidbody playerRb;
@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     {
         float forwardInput = Input.GetAxis("Vertical");
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+
+        if (speed > 40f)
+        {
+            speed = 40f;
+        }
 
         horizontalInput = Input.GetAxis("Horizontal");
         //// Moves the car forward based on vertical input
