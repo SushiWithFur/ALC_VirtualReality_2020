@@ -33,10 +33,10 @@ namespace Zenva.VR
         {
             // get a list of all connected controllers
             List<InputDevice> devices = new List<InputDevice>();
-            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller, devices);
+            //InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller, devices);
 
             // loop through each device and change the pose source
-            for(int i = 0; i < devices.Count; i++)
+            for (int i = 0; i < devices.Count; i++)
             {
                 if(devices[i].role == InputDeviceRole.LeftHanded)
                 {
